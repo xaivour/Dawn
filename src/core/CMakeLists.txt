@@ -4,6 +4,13 @@ add_library(core STATIC
     log.h
     app_state.cpp
     app_state.h
+    spritebatch.cpp
+    spritebatch.h
+)
+
+target_compile_features(core 
+    PUBLIC
+        cxx_std_11
 )
 
 target_link_libraries(core
