@@ -1,5 +1,6 @@
 #include "core/log.h"
 #include "core/app_state.h"
+#include <glm/glm.hpp>
 
 int main(int argc, char** argv)
 {
