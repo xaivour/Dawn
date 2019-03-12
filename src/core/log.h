@@ -10,11 +10,11 @@ namespace Dawn
     public:
         static void initLog();
         
-        static std::shared_ptr<spdlog::logger>& getInternalLogger() { return s_internalLogger; }
-        static std::shared_ptr<spdlog::logger>& getClientLogger() { return s_clientLogger; }
+        static std::shared_ptr<spdlog::logger>& getInternalLogger() { return internalLogger; }
+        static std::shared_ptr<spdlog::logger>& getClientLogger() { return clientLogger; }
     private:
-        static std::shared_ptr<spdlog::logger> s_internalLogger;
-        static std::shared_ptr<spdlog::logger> s_clientLogger;
+        static std::shared_ptr<spdlog::logger> internalLogger;
+        static std::shared_ptr<spdlog::logger> clientLogger;
     };
     
 #define DAWN_INTERNAL_ERROR(...)    ::Dawn::Log::getInternalLogger()->error(__VA_ARGS__)

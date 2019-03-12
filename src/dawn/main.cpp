@@ -9,7 +9,7 @@ int main(int argc, char** argv)
     DAWN_WARN("Hello");
    
     auto app = Dawn::AppState::create();
-    app->init("Dawn", 840, 640);
+    app->initWindow("Dawn", 840, 640);
     app->execute();
     
     delete app;

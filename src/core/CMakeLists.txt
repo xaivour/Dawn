@@ -2,7 +2,6 @@
 add_library(core STATIC
     log.cpp
     log.h
-    app_state.cpp
     app_state.h
     spritebatch.cpp
     spritebatch.h
@@ -21,4 +20,18 @@ target_link_libraries(core
         externals::spdlog
         SDL2::SDL2main
         SDL2::SDL2
+)
+
+target_compile_options(core
+    PUBLIC 
+        -no-pie
+        -Wno-reorder
+)
+
+# platform specific sources
+add_subdirectory(platform) 
+
+target_link_libraries(core
+    PRIVATE 
+        platform
 )

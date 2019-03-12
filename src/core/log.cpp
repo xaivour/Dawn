@@ -3,13 +3,13 @@
 
 namespace Dawn
 {
-    std::shared_ptr<spdlog::logger> Log::s_internalLogger{};
-    std::shared_ptr<spdlog::logger> Log::s_clientLogger{};
+    std::shared_ptr<spdlog::logger> Log::internalLogger{};
+    std::shared_ptr<spdlog::logger> Log::clientLogger{};
     
     void Log::initLog()
     {
         spdlog::set_pattern("%^[%T] %n: %v%$");
-        s_internalLogger = spdlog::stderr_color_mt("DAWN");
-        s_clientLogger = spdlog::stderr_color_mt("APP");
+        internalLogger = spdlog::stderr_color_mt("DAWN");
+        clientLogger = spdlog::stderr_color_mt("APP");
     }
 }
