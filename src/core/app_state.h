@@ -15,11 +15,14 @@ namespace Dawn
         virtual ~AppState() {};
 
         virtual void initWindow(const std::string& title, uint32 width, uint32 height) = 0;
-        virtual inline bool isRunning() const = 0;
+        inline bool isRunning() const { return isAppRunning; }
         virtual uint32 getFps() const = 0;
         virtual void execute() = 0;
     protected:
-        virtual void processEvents(EventHandler& eventHandler) = 0;
+        virtual void processEvents() = 0;
+
+        EventHandler eventHandler{};
+        bool isAppRunning{};
     private:
         DAWN_NULL_COPY_AND_ASSIGN(AppState)
     };

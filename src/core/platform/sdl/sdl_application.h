@@ -16,11 +16,10 @@ namespace Dawn
 		void sdlInit();
 
         void initWindow(const std::string& title, uint32 width, uint32 height) override; 
-        inline bool isRunning() const override;
         uint32 getFps() const override { /* TODO: Implementation */ };
         void execute() override;
         
-        void processEvents(EventHandler& eventHandler) override;
+        void processEvents() override;
 	};
 }
 

@@ -51,18 +51,12 @@ namespace Dawn
 	void SdlApplication::execute()
 	{
 		isAppRunning = true;
-		EventHandler tempEventHandler;
 		while(isAppRunning) {
-			processEvents(tempEventHandler);
+			processEvents();
 		}
 	}
 
-	inline bool SdlApplication::isRunning() const
-	{
-		return isAppRunning;
-	}
-
-	void SdlApplication::processEvents(EventHandler& eventHandler)
+	void SdlApplication::processEvents()
 	{
 		static SDL_Event e;
 		while(SDL_PollEvent(&e)) {
