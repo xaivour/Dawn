@@ -1,6 +1,7 @@
 #include "sdl_application.h"
 #include <glad/glad.h>
 #include "core/app_state.h"
+#include "core/events/event_handler.h"
 #include "core/common.h"
  
 namespace Dawn
@@ -62,19 +63,19 @@ namespace Dawn
 		while(SDL_PollEvent(&e)) {
 		   switch(e.type){
 		      case SDL_KEYDOWN:
-			    eventHandler.onKeyDown(e.key.keysym.scancode, e.key.repeat != 0);
+			    EventHandler::getEventHandler()->onKeyDown(e.key.keysym.scancode, e.key.repeat != 0);
 			    break;
 		      case SDL_KEYUP:
-			    eventHandler.onKeyUp(e.key.keysym.scancode, e.key.repeat != 0);
+			    EventHandler::getEventHandler()->onKeyUp(e.key.keysym.scancode, e.key.repeat != 0);
 			    break;
 		      case SDL_MOUSEBUTTONDOWN:
-			    eventHandler.onMouseDown(e.button.button, e.button.clicks);
+			    EventHandler::getEventHandler()->onMouseButtonDown(e.button.button, e.button.clicks);
 			    break;
 		      case SDL_MOUSEBUTTONUP:
-			    eventHandler.onMouseUp(e.button.button, e.button.clicks);
+			    EventHandler::getEventHandler()->onMouseButtonUp(e.button.button, e.button.clicks);
 			    break;
 		      case SDL_MOUSEMOTION:
-			    eventHandler.onMouseMove(e.motion.x, e.motion.y, e.motion.xrel, e.motion.yrel);
+			    EventHandler::getEventHandler()->onMouseMove(e.motion.x, e.motion.y, e.motion.xrel, e.motion.yrel);
 			    break;
 		      case SDL_QUIT:
 			    isAppRunning = false;
