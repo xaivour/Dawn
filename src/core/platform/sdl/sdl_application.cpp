@@ -69,10 +69,10 @@ namespace Dawn
 			    EventHandler::getEventHandler()->onKeyUp(e.key.keysym.scancode, e.key.repeat != 0);
 			    break;
 		      case SDL_MOUSEBUTTONDOWN:
-			    EventHandler::getEventHandler()->onMouseButtonDown(e.button.button, e.button.clicks);
+			    EventHandler::getEventHandler()->onMouseButtonDown(e.button.button, e.button.clicks, e.button.x, e.button.y);
 			    break;
 		      case SDL_MOUSEBUTTONUP:
-			    EventHandler::getEventHandler()->onMouseButtonUp(e.button.button, e.button.clicks);
+			    EventHandler::getEventHandler()->onMouseButtonUp(e.button.button, e.button.clicks, e.button.x, e.button.y);
 			    break;
 		      case SDL_MOUSEMOTION:
 			    EventHandler::getEventHandler()->onMouseMove(e.motion.x, e.motion.y, e.motion.xrel, e.motion.yrel);

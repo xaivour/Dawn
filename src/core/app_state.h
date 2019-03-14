@@ -19,11 +19,11 @@ namespace Dawn
         virtual uint32 getFps() const = 0;
         virtual void execute() = 0;
 
-        void onKeyDown(KeyDownEvent& e)
+        void onMouseButtonDown(MouseButtonDownEvent& e)
         {
-            if(e.keyCode == Input::KEY_A)
+            if(e.mouseButtonCode == Input::MOUSE_LEFT_BUTTON)
             {
-                DAWN_INFO("Key pressed 0x{:x}", e.keyCode);
+                DAWN_INFO("Clicked at ({}, {})", e.posX, e.posY);
             }
         }
     protected:

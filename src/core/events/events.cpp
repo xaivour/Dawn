@@ -21,20 +21,24 @@ namespace Dawn
     	EventDispatcher::getEventDispatcher().dispatchEvent(keyUpEvent);
     }
 
-    void EventHandler::onMouseButtonDown(uint32 mouseButton, uint8 numClicks)
+    void EventHandler::onMouseButtonDown(uint32 mouseButton, uint8 numClicks, int32 posX, int32 posY)
     {
     	static MouseButtonDownEvent mouseButtonDownEvent;
     	mouseButtonDownEvent.mouseButtonCode = mouseButton;
     	mouseButtonDownEvent.numClicks = numClicks;
+        mouseButtonDownEvent.posX = posX;
+        mouseButtonDownEvent.posY = posY;
 
     	EventDispatcher::getEventDispatcher().dispatchEvent(mouseButtonDownEvent);
     }
 
-    void EventHandler::onMouseButtonUp(uint32 mouseButton, uint8 numClicks)
+    void EventHandler::onMouseButtonUp(uint32 mouseButton, uint8 numClicks, int32 posX, int32 posY)
     {
     	static MouseButtonUpEvent mouseButtonUpEvent;
     	mouseButtonUpEvent.mouseButtonCode = mouseButton;
     	mouseButtonUpEvent.numClicks = numClicks;
+        mouseButtonUpEvent.posX = posX;
+        mouseButtonUpEvent.posY = posY;
 
     	EventDispatcher::getEventDispatcher().dispatchEvent(mouseButtonUpEvent);
     }
@@ -57,19 +61,19 @@ namespace Dawn
         onEvent(e);
         switch(e.getEventType())
         {
-            case Event::KeyDownEvent:
+            case Event::KEY_DOWN:
                 onKeyDown((KeyDownEvent&)e);
                     break;
-            case Event::KeyUpEvent:
+            case Event::KEY_UP:
                 onKeyUp((KeyUpEvent&)e);
                     break;
-            case Event::MouseButtonDownEvent:
+            case Event::MOUSE_BUTTON_DOWN:
                 onMouseButtonDown((MouseButtonDownEvent&)e);
                     break;
-            case Event::MouseButtonUpEvent:
+            case Event::MOUSE_BUTTON_UP:
                 onMouseButtonUp((MouseButtonUpEvent&)e);
                     break;
-            case Event::MouseMoveEvent:
+            case Event::MOUSE_MOVE:
                 onMouseMove((MouseMoveEvent&)e);
                     break;
             }

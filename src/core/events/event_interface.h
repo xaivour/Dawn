@@ -4,17 +4,17 @@ namespace Dawn
 {
 	struct Event
 	{
-		Event() :eventType(None) {}
+		Event() :eventType(NONE) {}
 		~Event() {}
 
 		enum EventType
 		{
-			None,
-			KeyDownEvent,
-			KeyUpEvent,
-			MouseButtonDownEvent,
-			MouseButtonUpEvent,
-			MouseMoveEvent
+			NONE,
+			KEY_DOWN,
+			KEY_UP,
+			MOUSE_BUTTON_DOWN,
+			MOUSE_BUTTON_UP,
+			MOUSE_MOVE
 		};
 
 		inline const EventType& getEventType() const { return eventType; }

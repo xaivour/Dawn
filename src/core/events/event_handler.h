@@ -17,8 +17,8 @@ namespace Dawn
 	public:
 		void onKeyDown(uint32 keyCode, bool isRepeat);
 	    void onKeyUp(uint32 keyCode, bool isRepeat);
-	    void onMouseButtonDown(uint32 mouseButton, uint8 numClicks);
-	    void onMouseButtonUp(uint32 mouseButton, uint8 numClicks);
+	    void onMouseButtonDown(uint32 mouseButton, uint8 numClicks, int32 posX, int32 posY);
+	    void onMouseButtonUp(uint32 mouseButton, uint8 numClicks, int32 posX, int32 posY);
 	    void onMouseMove(int32 mousePosX, int32 mousePosY, 
 	    	                     int32 deltaX, int32 deltaY);
 

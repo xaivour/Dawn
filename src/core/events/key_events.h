@@ -7,7 +7,7 @@ namespace Dawn
 {
     struct KeyDownEvent : public Event
     {
-    	KeyDownEvent() { eventType = Event::KeyDownEvent; }
+    	KeyDownEvent() { eventType = Event::KEY_DOWN; }
     	~KeyDownEvent() {}
 
     	inline const uint32& getKeyCode() const { return keyCode; }
@@ -19,7 +19,7 @@ namespace Dawn
     
     struct KeyUpEvent : public Event
     {
-    	KeyUpEvent() { eventType = Event::KeyUpEvent; }
+    	KeyUpEvent() { eventType = Event::KEY_UP; }
     	~KeyUpEvent() {}
 
     	inline const uint32& getKeyCode() const { return keyCode; }
