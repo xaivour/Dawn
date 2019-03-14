@@ -22,10 +22,6 @@ namespace Dawn
 	    void onMouseMove(int32 mousePosX, int32 mousePosY, 
 	    	                     int32 deltaX, int32 deltaY);
 
-		static EventHandler* getEventHandler() 
-		{
-			static EventHandler* eventHandlerInstance = new EventHandler;
-			return eventHandlerInstance; 
-		}
+		static EventHandler* getEventHandler();
 	};
 }

@@ -9,31 +9,11 @@ namespace Dawn
 
 	class EventListener
 	{
-		friend class EventDispatcher;
-
-		void shipEvent(Event& e)
-		{
-			onEvent(e);
-			switch(e.getEventType())
-			{
-			    case Event::KeyDownEvent:
-					onKeyDown((KeyDownEvent&)e);
-					break;
-				case Event::KeyUpEvent:
-					onKeyUp((KeyUpEvent&)e);
-				    break;
-				case Event::MouseButtonDownEvent:
-					onMouseButtonDown((MouseButtonDownEvent&)e);
-					break;
-				case Event::MouseButtonUpEvent:
-					onMouseButtonUp((MouseButtonUpEvent&)e);
-					break;
-				case Event::MouseMoveEvent:
-					onMouseMove((MouseMoveEvent&)e);
-					break;
-			}
-		}
 	public:
+		int track{2};
+	public:
+		virtual void shipEvent(Event& e);
+		
 		virtual void onEvent(Event& e) {}
 		virtual void onKeyDown(KeyDownEvent& keyDownEvent) {}
 		virtual void onKeyUp(KeyUpEvent& keyUpEvent) {}

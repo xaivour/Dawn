@@ -1,6 +1,7 @@
 #pragma once 
 
 #include "event_interface.h"
+#include "core/common.h"
 
 namespace Dawn
 {

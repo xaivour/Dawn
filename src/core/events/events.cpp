@@ -1,6 +1,5 @@
+#include "events.h"
 #include "event_handler.h"
-#include "key_events.h"
-#include "mouse_events.h"
 
 namespace Dawn
 {
@@ -51,5 +50,53 @@ namespace Dawn
     	mouseMoveEvent.deltaY = deltaY;
 
     	EventDispatcher::getEventDispatcher().dispatchEvent(mouseMoveEvent);
+    }
+
+    void EventListener::shipEvent(Event& e)
+    {
+        onEvent(e);
+        switch(e.getEventType())
+        {
+            case Event::KeyDownEvent:
+                onKeyDown((KeyDownEvent&)e);
+                    break;
+            case Event::KeyUpEvent:
+                onKeyUp((KeyUpEvent&)e);
+                    break;
+            case Event::MouseButtonDownEvent:
+                onMouseButtonDown((MouseButtonDownEvent&)e);
+                    break;
+            case Event::MouseButtonUpEvent:
+                onMouseButtonUp((MouseButtonUpEvent&)e);
+                    break;
+            case Event::MouseMoveEvent:
+                onMouseMove((MouseMoveEvent&)e);
+                    break;
+            }
+    }
+
+    EventHandler* EventHandler::getEventHandler() 
+    {
+        static EventHandler* eventHandlerInstance = new EventHandler;
+        return eventHandlerInstance; 
+    }
+
+    EventDispatcher& EventDispatcher::getEventDispatcher()
+    {
+        static EventDispatcher eventDispathcer;
+        return eventDispathcer;
+    }
+
+    void EventDispatcher::addEventListener(EventListener* eventListener)
+    {
+        eventListeners.push_back(eventListener);
+    }
+
+    void EventDispatcher::removeEventListener(EventListener* eventListener)
+    {
+        eventListeners.erase(std::remove_if(eventListeners.begin(), 
+                             eventListeners.end(), [eventListener](EventListener* e){
+            return (e == eventListener);
+        }));
     }
 }

@@ -5,10 +5,10 @@ add_library(core STATIC
     app_state.h
     spritebatch.cpp
     spritebatch.h
-    events/event_handler.cpp 
+    events/events.cpp 
+    events/events.h
     events/event_handler.h 
     events/event_listener.h 
-    events/events.h 
     events/key_events.h 
     events/mouse_events.h
 )
