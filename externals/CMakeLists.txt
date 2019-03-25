@@ -27,36 +27,6 @@ target_link_libraries(glad
 
 add_library(externals::glad ALIAS glad)
 
-add_library(rapidjson INTERFACE)
-
-target_include_directories(rapidjson
-    INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/rapidjson/include
-)
-
-target_compile_features(rapidjson
-    INTERFACE
-        cxx_std_11
-)
-
-add_library(externals::rapidjson ALIAS rapidjson)
-
-add_subdirectory(glm)
-
-add_library(ext-glm INTERFACE)
-
-target_link_libraries(ext-glm 
-    INTERFACE
-        glm_static
-)
-
-target_include_directories(ext-glm
-    INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/glm
-)
-
-add_library(externals::glm ALIAS ext-glm)
-
 add_library(stb STATIC stb_image/stb_image.cpp stb_image/stb_image.h)
 
 target_include_directories(stb

@@ -1,0 +1,129 @@
+/*
+ * Copyright (c) 2012-2018 Daniele Bartolini and individual contributors.
+ * License: https://github.com/dbartolini/crown/blob/master/LICENSE
+ */
+
+#pragma once
+
+#include "core/platform.h"
+
+#define DAWN_VERSION "@PROJECT_VERSION@"
+#define DAWN_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define DAWN_VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define DAWN_VERSION_PATCH @PROJECT_VERSION_PATCH@
+
+#define DAWN_DEBUG @DAWN_DEBUG@
+#define DAWN_TOOLS @DAWN_TOOLS@
+//#define DAWN_BUILD_UNIT_TESTS @DAWN_BUILD_UNIT_TESTS@
+
+#ifndef DAWN_DEBUG
+	#define DAWN_DEBUG 0
+#endif // DAWN_DEBUG
+
+#ifndef DAWN_DEVELOPMENT
+	#define DAWN_DEVELOPMENT 0
+#endif // DAWN_DEVELOPMENT
+
+#ifndef DAWN_TOOLS
+	#define DAWN_TOOLS 0
+#endif // DAWN_TOOLS
+
+#ifndef DAWN_BUILD_UNIT_TESTS
+	#define DAWN_BUILD_UNIT_TESTS 1
+#endif // DAWN_BUILD_UNIT_TESTS
+
+#if !defined(DAWN_PHYSICS_BULLET) \
+	&& !defined(DAWN_PHYSICS_NOOP)
+
+	#ifndef DAWN_PHYSICS_BULLET
+		#define DAWN_PHYSICS_BULLET 1
+	#endif // DAWN_PHYSICS_BULLET
+
+	#ifndef DAWN_PHYSICS_NOOP
+		#define DAWN_PHYSICS_NOOP 0
+	#endif // DAWN_PHYSICS_NOOP
+#else
+	#ifndef DAWN_PHYSICS_BULLET
+		#define DAWN_PHYSICS_BULLET 0
+	#endif // DAWN_PHYSICS_BULLET
+
+	#ifndef DAWN_PHYSICS_NOOP
+		#define DAWN_PHYSICS_NOOP 0
+	#endif // DAWN_PHYSICS_NOOP
+#endif
+
+#if !defined(DAWN_SOUND_OPENAL) \
+	&& !defined(DAWN_SOUND_NOOP)
+
+	#ifndef DAWN_SOUND_OPENAL
+		#define DAWN_SOUND_OPENAL 1
+	#endif // DAWN_SOUND_OPENAL
+
+	#ifndef DAWN_SOUND_NOOP
+		#define DAWN_SOUND_NOOP 0
+	#endif // DAWN_SOUND_NOOP
+#else
+	#ifndef DAWN_SOUND_OPENAL
+		#define DAWN_SOUND_OPENAL 0
+	#endif
+
+	#ifndef DAWN_SOUND_NOOP
+		#define DAWN_SOUND_NOOP 0
+	#endif
+#endif
+
+#ifndef DAWN_DEFAULT_PIXELS_PER_METER
+	#define DAWN_DEFAULT_PIXELS_PER_METER 32
+#endif // DAWN_DEFAULT_PIXELS_PER_METER
+
+#ifndef DAWN_DEFAULT_WINDOW_WIDTH
+	#define DAWN_DEFAULT_WINDOW_WIDTH 1280
+#endif // DAWN_DEFAULT_WINDOW_WIDTH
+
+#ifndef DAWN_DEFAULT_WINDOW_HEIGHT
+	#define DAWN_DEFAULT_WINDOW_HEIGHT 720
+#endif // DAWN_DEFAULT_WINDOW_HEIGHT
+
+#ifndef DAWN_DEFAULT_CONSOLE_PORT
+	#define DAWN_DEFAULT_CONSOLE_PORT 10001
+#endif // DAWN_DEFAULT_CONSOLE_PORT
+
+#ifndef DAWN_DEFAULT_COMPILER_PORT
+	#define DAWN_DEFAULT_COMPILER_PORT 10618
+#endif // DAWN_DEFAULT_COMPILER_PORT
+
+#ifndef DAWN_BOOT_CONFIG
+	#define DAWN_BOOT_CONFIG "boot"
+#endif // DAWN_BOOT_CONFIG
+
+#ifndef DAWN_DATA_DIRECTORY
+	#define DAWN_DATA_DIRECTORY "data"
+#endif // DAWN_DATA_DIRECTORY
+
+#ifndef DAWN_TEMP_DIRECTORY
+	#define DAWN_TEMP_DIRECTORY "temp"
+#endif // DAWN_TEMP_DIRECTORY
+
+#ifndef DAWN_DATAIGNORE
+	#define DAWN_DATAIGNORE ".dataignore"
+#endif // DAWN_DATAIGNORE
+
+#ifndef DAWN_LAST_LOG
+	#define DAWN_LAST_LOG "last.log"
+#endif // DAWN_LAST_LOG
+
+#ifndef DAWN_MAX_JOYPADS
+	#define DAWN_MAX_JOYPADS 4
+#endif // DAWN_MAX_JOYPADS
+
+#ifndef DAWN_LUA_MAX_VECTOR3_SIZE
+	#define DAWN_LUA_MAX_VECTOR3_SIZE (129*1024)
+#endif // CE_MAX
+
+#ifndef DAWN_LUA_MAX_QUATERNION_SIZE
+	#define DAWN_LUA_MAX_QUATERNION_SIZE (128*1024)
+#endif // CE_MAX
+
+#ifndef DAWN_LUA_MAX_MATRIX4X4_SIZE
+	#define DAWN_LUA_MAX_MATRIX4X4_SIZE (128*1024)
+#endif // CE_MAX
