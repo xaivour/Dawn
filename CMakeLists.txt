@@ -12,10 +12,12 @@ find_package(SDL2 CONFIG REQUIRED)
 
 set(DAWN_DEBUG_MODE ON CACHE BOOL "Enable Debug mode")
 
-if(DAWN_DEBUG_MODE)
-set(DAWN_DEBUG 1)
-else()
-set(DAWN_DEBUG 0)
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+	set(LINUX 1)
+elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
+	set(WINDOWS 1)
+elseif(CMAKE_SYSTEM_NAME MATCHES "Android")
+	set(ANDROID 1)
 endif()
 
 configure_file(

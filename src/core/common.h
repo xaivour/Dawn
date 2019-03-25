@@ -4,7 +4,7 @@
 
 #include "log.h"
 
-namespace Dawn
+namespace dawn
 {
 	typedef int8_t int8;
 	typedef int16_t int16;

@@ -161,10 +161,14 @@ target_compile_options(core
         -Wno-reorder
 )
 
-#platform specific sources
-#add_subdirectory(platform)
-
-target_link_libraries(core
-    PRIVATE
-       # platform
+if(LINUX)
+target_link_libraries(core PUBLIC
+	pthread
 )
+endif()
+
+if(DAWN_DEBUG_MODE)
+target_compile_definitions(core PUBLIC
+	-DDAWN_DEBUG=1
+)
+endif()

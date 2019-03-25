@@ -1,10 +1,11 @@
 #include "core/log.h"
+#include "core/error/error.h"
 
 int main(int argc, char** argv)
 {
-    Dawn::Log::initLog();
+    dawn::log_internal::init_log();
 
-    DAWN_WARN("Hello");
+    DE_FATAL("hello");
 
     return EXIT_SUCCESS;
 }

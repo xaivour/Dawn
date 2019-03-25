@@ -26,7 +26,7 @@ namespace error
 		ss << "Stacktrace:\n";
 		callstack(ss);
 
-		DAWN_INTERNAL_ERROR(string_stream::c_str(ss));
+		DE_INTERNAL_ERROR(string_stream::c_str(ss));
 		exit(EXIT_FAILURE);
 	}
 
